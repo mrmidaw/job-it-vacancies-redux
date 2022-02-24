@@ -5,8 +5,7 @@ Find IT vacancies.
 ## Used Technologies:
 - React
 - Redux 
-- React Hooks
-- React Router 
+- Prop Types 
 
 
 ## Requirements
