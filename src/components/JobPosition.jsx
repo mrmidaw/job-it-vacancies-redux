@@ -17,6 +17,7 @@ const JobPosition = ({
   location,
   languages,
   tools,
+  handleAddFilter
 }) => {
   const badges = [].concat(role, level, ...languages, ...tools);
 
@@ -30,7 +31,7 @@ const JobPosition = ({
             alt={company}
           />
           <div className='job-position-body'>
-            <div className='job-postion-company'>
+            <div className='job-position-company'>
               <h3>{company}</h3>
               {(isNew || featured) && (
                 <Stack>
@@ -65,7 +66,12 @@ const JobPosition = ({
         </div>
         <Stack>
           {badges.map(item => (
-            <Badge key={item}>{item}</Badge>
+            <Badge
+              onClick={() => handleAddFilter(item)}
+              key={item}
+            >
+              {item}
+            </Badge>
           ))}
         </Stack>
       </div>
@@ -73,7 +79,7 @@ const JobPosition = ({
   )
 }
 
-export {JobPosition};
+export { JobPosition };
 
 JobPosition.propTypes = {
   id: PropTypes.number,
@@ -89,4 +95,5 @@ JobPosition.propTypes = {
   location: PropTypes.string,
   languages: PropTypes.arrayOf(PropTypes.string),
   tools: PropTypes.arrayOf(PropTypes.string),
+  handleAddFilter: PropTypes.func
 };
